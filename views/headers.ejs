@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/input.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="/path/to/your/firebase-config.js"></script>
+    <!-- Include Firebase SDKs if not using NPM bundler -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCNKJF98kixS3SKXmD0m_EW47hHvrwjnVw",
+        authDomain: "jose-35ba3.firebaseapp.com",
+        projectId: "jose-35ba3",
+        storageBucket: "jose-35ba3.appspot.com",
+        messagingSenderId: "127813002960",
+        appId: "1:127813002960:web:7ad493f966fc8d58eba0d5",
+        measurementId: "G-50N0CXJM00"
+      };
+  
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const firestore = firebase.firestore();
+    </script>
+  
+

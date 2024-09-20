@@ -1,0 +1,153 @@
+<div class="row mb-4">
+    <div class="col-8">
+        <div id="download-btn-2" style="background-color: green; color: white; padding: 10px; margin: 5px; width: 160px; text-align: center; font-weight: bolder; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <i class="fa-solid fa-download" style="margin-right: 5px;"></i>
+            Download CSV
+        </div>
+        
+    </div>
+    <div class="col-4"><form class="flex items-center max-w-sm mx-auto">   
+       <label for="simple-search" class="sr-only">Search</label>
+       <div class="relative w-full">
+           <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Search by name..." required />
+       </div>
+       <button style="background-color: #176B87;" type="submit" class="p-2.5 ms-2 text-sm font-medium text-white rounded-lg border focus:ring-4 focus:outline-none focus:ring-blue-300">
+           <svg style="color: white;" class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+           </svg>
+           <span class="sr-only">Search</span>
+       </button>
+    </form></div>
+  </div>
+ 
+  <div class="relative overflow-x-auto mb-6">
+     
+    <table id="data-table-2" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mb-4">
+        <thead class="text-xs text-gray-700 uppercase" style="background-color: #176B87; color: #EEF5FF;">
+            <tr>
+                <th scope="col" class="px-6 py-3">Full Name</th>
+                <th scope="col" class="px-6 py-3">Package Name</th>
+                <th scope="col" class="px-6 py-3">Price</th>
+                <th scope="col" class="px-6 py-3">Contact Details</th>
+                <th scope="col" class="px-6 py-3">Email</th>
+                <th scope="col" class="px-6 py-3">Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Orders.forEach(order => { %>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= order.fullNames || 'N/A' %>
+                    </td>
+                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      <%= order.package %>
+                    </td>
+                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        R  <%= order.price || 'N/A' %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= order.phoneNumber || 'N/A' %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="mailto:<%= order.email || 'example@example.com' %>"><%= order.username || 'N/A' %></a>
+                    </td>
+                    <td class="px-6 py-4">
+                        <form action="/update-order-status/<%= order._id %>" method="POST">
+                            <input type="hidden" name="packageId" value="<%= order.packageId %>" id="">
+                            <button type="submit" style="border: none; background: none; padding: 0;">
+                                <% if (order.status === false) { %>
+                                    <strong style="color: white; background-color: #176B87; padding: 10px; border-radius: 10px;">
+                                        Approve
+                                    </strong>
+                                <% } else { %>
+                                    <strong style="color: white; background-color: green; padding: 10px; border-radius: 10px;">
+                                        Payed
+                                    </strong>
+                                <% } %>
+                            </button>
+                        </form>
+                        
+                       
+                    </td>
+                    
+                    
+                    <!-- Modal HTML -->
+                    <div id="imageModal" class="modal" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close" style="color: red;height: 20px;" onclick="closeModal()">&times;</span>
+                            <img id="modalImage" src="" alt="Modal Image" style="width: 100%; max-height: 80vh;object-fit: contain;"/>
+                            <a id="downloadLink" href="#" download="proof_of_payment.png">
+                                <button style="margin-top: 10px; padding: 10px; background-color: #176B87; color: white; border: none; border-radius: 5px;">
+                                    Download
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+ </div>
+
+
+ <script>
+    function openModal(imageBase64) {
+    // Show the modal
+    document.getElementById('imageModal').style.display = 'block';
+    
+    // Set the image source
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = `data:image/png;base64,${imageBase64}`;
+    
+    // Set the download link href
+    const downloadLink = document.getElementById('downloadLink');
+    downloadLink.href = `data:image/png;base64,${imageBase64}`;
+}
+
+function closeModal() {
+    // Hide the modal
+    document.getElementById('imageModal').style.display = 'none';
+}
+
+ </script>
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function downloadTableAsCSV(tableId, filename) {
+            var table = document.getElementById(tableId);
+            if (!table) {
+                console.error('Table not found with ID:', tableId);
+                return;
+            }
+    
+            var rows = table.querySelectorAll('tr');
+            var csv = [];
+    
+            rows.forEach(function(row) {
+                var cols = row.querySelectorAll('td, th');
+                var csvRow = [];
+                cols.forEach(function(col) {
+                    csvRow.push('"' + col.innerText.replace(/"/g, '""') + '"');
+                });
+                csv.push(csvRow.join(','));
+            });
+    
+            var csvFile = new Blob([csv.join('\n')], { type: 'text/csv' });
+            var downloadLink = document.createElement('a');
+            
+            downloadLink.download = filename;
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            downloadLink.style.display = 'none';
+            
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    
+        document.getElementById('download-btn-2')?.addEventListener('click', function() {
+            downloadTableAsCSV('data-table-2', 'registerd_learners.csv');
+        });
+    });
+    </script>
+    

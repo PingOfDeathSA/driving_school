@@ -1,0 +1,195 @@
+<div class="row mb-4">
+    <div class="col-8">
+        <div id="download-btn" style="background-color: green; color: white; padding: 10px; margin: 5px; width: 160px; text-align: center; font-weight: bolder; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <i class="fa-solid fa-download" style="margin-right: 5px;"></i>
+            Download CSV
+        </div>
+    </div>
+    <div class="col-4"><form class="flex items-center max-w-sm mx-auto">   
+       <label for="simple-search" class="sr-only">Search</label>
+       <div class="relative w-full">
+         
+           <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Search by name..." required />
+       </div>
+       <button style="background-color: #176B87;" type="submit" class="p-2.5 ms-2 text-sm font-medium text-white rounded-lg border focus:ring-4 focus:outline-none focus:ring-blue-300">
+           <svg style="color: white;" class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+           </svg>
+           <span class="sr-only">Search</span>
+       </button>
+    </form></div>
+  </div>
+
+
+
+ <div class="relative overflow-x-auto">
+
+    <table id="data-table" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase" style="background-color: #176B87;color: #EEF5FF;">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Learners
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Instructors
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    lessons
+ 
+                </th>
+            </th>
+
+                <th scope="col" class="px-6 py-3">
+                   Conplited
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   Panding
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Missed
+                 </th>
+                 <th scope="col" class="px-6 py-3">
+                    Next Lessons
+                 </th>
+                    <th scope="col" class="px-6 py-3">
+                        Type
+                    </th>
+                <th  scope="col" class="px-6 py-3">
+ Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      John Doe
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Mike Ross
+              </th>
+                <td class="px-6 py-4">
+                     <strong style="color: #E8B86D;">10</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: teal;">5</strong>
+                </td>
+                <td class="px-6 py-4">
+                      <strong style="color: #EF5A6F;">4</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: #EF5A6F;">1</strong>
+              </td>
+              <td class="px-6 py-4">
+                <strong style="color: black;">Monday 25-july-2024-08:00</strong>
+          </td>
+          <td class="px-6 py-4">
+            Straight Reverse
+        </td>
+                <td class="px-6 py-4">
+                   <button class="text-xs text-white border-0 py-2 px-4 focus:outline-none rounded" style="background-color: #176B87; color: white;">
+                       Edit
+                   </button>
+
+           </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Mickey Mouse
+              </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Mike Ross
+                </th>
+                <td class="px-6 py-4">
+                     <strong style="color: #E8B86D;">10</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: teal;">5</strong>
+                </td>
+                <td class="px-6 py-4">
+                      <strong style="color: #EF5A6F;">5</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: #EF5A6F;">0</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: black;">Monday 25-july-2024-12:30</strong>
+                </td>
+                <td class="px-6 py-4">
+                    Straight Reverse
+                </td>
+                <td class="px-6 py-4">
+                   <button class="text-xs text-white border-0 py-2 px-4 focus:outline-none rounded" style="background-color: #176B87; color: white;">
+                       Edit
+                   </button>
+
+      
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Donald Duck
+              </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Mike Ross
+                </th>
+                <td class="px-6 py-4">
+                     <strong style="color: #E8B86D;">10</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: teal;">5</strong>
+                </td>
+                <td class="px-6 py-4">
+                      <strong style="color: #EF5A6F;">3</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: #EF5A6F;">2</strong>
+                </td>
+                <td class="px-6 py-4">
+                    <strong style="color: black;">Monday 25-july-2024-14:00</strong>
+                </td>
+                <td class="px-6 py-4">
+                    Straight Reverse
+                </td>
+                <td class="px-6 py-4">
+                   <button class="text-xs text-white border-0 py-2 px-4 focus:outline-none rounded" style="background-color: #176B87; color: white;">
+                       Edit
+                   </button>
+        </tr>
+        </tbody>
+
+
+
+     
+    </table>
+ </div>
+
+ <SCript>
+    document.getElementById('download-btn').addEventListener('click', function() {
+    // Get the table element
+    var table = document.getElementById('data-table');
+    var rows = table.querySelectorAll('tr');
+    
+    // Create a CSV string
+    var csv = [];
+    
+    rows.forEach(function(row) {
+        var cols = row.querySelectorAll('td, th');
+        var csvRow = [];
+        cols.forEach(function(col) {
+            csvRow.push('"' + col.innerText.replace(/"/g, '""') + '"');
+        });
+        csv.push(csvRow.join(','));
+    });
+    
+    // Create a CSV file and trigger download
+    var csvFile = new Blob([csv.join('\n')], { type: 'text/csv' });
+    var downloadLink = document.createElement('a');
+    
+    downloadLink.download = 'paid_leaners.csv';
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = 'none';
+    
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+});
+
+ </SCript>
